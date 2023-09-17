@@ -106,14 +106,14 @@
     </div>
 </div>
 <br/>
-<div class="a" style="margin:0 10rem;">
-<h1 id="main" class="btn" class="hidden">
-</h1>
+<div class="a" style="margin:0 10rem; display: flex;justify-content: center;">
+    <h1 id="main" class="btn" class="hidden">
+    </h1>
 </div>
-<pre id="tiresult" style="width: fit-content;display:none;font-size: 9px; background-color: #000000; font-weight: bold; padding: 4px 5px; --fs: 9px;">
+<pre id="tiresult" style="width: 100%;display: none;justify-content: center;">
     <a href="https://ibb.co/SnqpmrC"><img src="https://i.ibb.co/58qVjFH/snapedit-1690211516343.jpg" alt="snapedit-1690211516343" border="0">
 </pre>
-<audio id="myAudio">
+<audio id="myAudio" loop>
     <source src="P.mp3" type="audio/mpeg">
 </audio>
     <script>
@@ -144,7 +144,6 @@
     typeKichban()
     document.getElementById("ansKichBan").onmousedown=()=>{i=0;k+=1;l=0;document.getElementById("titleKichBan").innerHTML="";next()}
     function next() {
-
         // document.getElementById("start").style.display="none"
         if (l < kichban[0][0].length) {
             document.getElementById("titleKichBan").innerHTML += kichban[1][0].charAt(l);
@@ -156,6 +155,9 @@
             }, tocDo );
         }
         if(k==2){
+        if (document.getElementById("myAudio").paused) {
+            document.getElementById("myAudio").play();
+        }
             document.getElementById("kichban").style.transition="2s"
             document.getElementById("kichban").style.transform="translateY(-100rem)"
             k+=1;
@@ -195,9 +197,7 @@
             i++;
             setTimeout(typeWriter, tocDo );
         }else {
-            document.getElementById("tiresult").style.display="block"
-            document.getElementById("myAudio").play()
-
+            document.getElementById("tiresult").style.display="flex"       
         }
     }
     document.getElementById("hate").onmouseover=()=>{
